@@ -6,9 +6,9 @@ import random
 
 app = Flask(__name__)
 db = TinyDB('db.json')
-recipe = random.choice(db.all())
 
 
 @app.route('/')
 def index(name=None):
+    recipe = random.choice(db.all())
     return render_template('hello.html', name=recipe)
